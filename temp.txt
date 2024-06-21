@@ -1,7 +1,6 @@
 python -m venv venv
 source venv/Scripts/activate
 
-
 pip install --upgrade pip
 pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 
@@ -13,3 +12,9 @@ docker run -it \
     -e "discovery.type=single-node" \
     -e "xpack.security.enabled=false" \
     docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+
+
+export OPENAI_API_KEY=$(cat .openai_api_key)
+echo $OPENAI_API_KEY
+
+jupyter notebook
