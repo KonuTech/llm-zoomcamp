@@ -26,6 +26,13 @@ jupyter notebook
 git config --global user.email "borowiec.k@gmail.com"
 git config --global user.name "Konrad Borowiec"
 
+ssh-keygen -t ed25519 -C "borowiec.k@gmail.com"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+git remote set-url origin git@github.com:KonuTech/llm-zoomcamp.git
+
+
+
 To update repo:
 git fetch upstream
 git checkout main
