@@ -1,6 +1,10 @@
 python -m venv venv
 source venv/Scripts/activate
 
+python3 -m venv .venv
+source .venv/bin/activate
+
+
 pip install --upgrade pip
 pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 
@@ -18,3 +22,48 @@ export OPENAI_API_KEY=$(cat .openai_api_key)
 echo $OPENAI_API_KEY
 
 jupyter notebook
+
+git config --global user.email "borowiec.k@gmail.com"
+git config --global user.name "Konrad Borowiec"
+
+To update repo:
+git fetch upstream
+git checkout main
+git merge upstream/main
+
+
+curl -fsSL https://ollama.com/install.sh | sh
+
+ollama start
+ollama serve phi3
+127.0.0.1:11434
+
+
+
+user@DESKTOP-D7SFLUT:~$ curl -fsSL https://ollama.com/install.sh | sh
+>>> Downloading ollama...
+######################################################################## 100.0%##O#-#
+>>> Installing ollama to /usr/local/bin...
+>>> Creating ollama user...
+>>> Adding ollama user to render group...
+>>> Adding ollama user to video group...
+>>> Adding current user to ollama group...
+>>> Creating ollama systemd service...
+>>> Enabling and starting ollama service...
+Created symlink /etc/systemd/system/default.target.wants/ollama.service → /etc/systemd/system/ollama.service.                                                               >>> Nvidia GPU detected.
+>>> The Ollama API is now available at 127.0.0.1:11434.                                                                                                                     >>> Install complete. Run "ollama" from the command line.                                                                                                                   user@DESKTOP-D7SFLUT:~$
+
+
+
+docker run -it \
+    -v ollama:/root/.ollama \
+    -p 11434:11434 \
+    --name ollama \
+    ollama/ollama
+
+
+
+cd 02...
+docker-compose up
+docker exec -it ollama bash
+ollama pull phi3

@@ -1,4 +1,8 @@
 .ipynb_checkpoints/
 __pycache__/venv/
 venv/
+.venv/
+.vscode/
 .openai_api_key
+01-intro/__pycache__/
+02-open-source/__pycache__/
